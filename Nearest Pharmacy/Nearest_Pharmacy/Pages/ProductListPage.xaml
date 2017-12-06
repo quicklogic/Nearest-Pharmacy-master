@@ -26,9 +26,15 @@
                                             <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
                                         <Frame BackgroundColor="White" Padding="5" HasShadow="False">
-                                            <Image Source="no_photo.png" Aspect="AspectFill"
-                                                HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="80"/>
-                                        </Frame>
+                                          <Image>
+                                            <Image.Source>
+                                              <UriImageSource Uri="{Binding ImagePath}"
+                                                CacheValidity="14"
+                                                CachingEnabled="true"/>
+                                            </Image.Source>
+                                          </Image>
+
+                                        </Frame> 
                                         <StackLayout Grid.Row="1" Padding="5,0,5,5" Spacing="1">
 
                                             <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="16" LineBreakMode="TailTruncation" 
@@ -50,35 +56,39 @@
                                 </Frame>
                                 <Frame  Grid.Column="2" IsVisible="{Binding IsVisible}"  Margin="0,5,0,5"
                                    BindingContext="{Binding Item2}" Padding="1" BackgroundColor="#4CAF50" HasShadow="True" OutlineColor="#bbb">
-                                    <Grid>
+                                  <Grid>
+                                    <Grid.RowDefinitions>
+                                      <RowDefinition Height="100"/>
+                                      <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Frame BackgroundColor="White" Padding="5" HasShadow="False">
+                                      <Image>
+                                        <Image.Source>
+                                          <UriImageSource Uri="{Binding ImagePath}"
+                                            CacheValidity="14"
+                                            CachingEnabled="true"/>
+                                        </Image.Source>
+                                      </Image>
 
+                                    </Frame>
+                                    <StackLayout Grid.Row="1" Padding="5,0,5,5" Spacing="1">
 
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="100"/>
-                                            <RowDefinition Height="*"/>
-                                        </Grid.RowDefinitions>
-                                        <Frame BackgroundColor="White" Padding="10" HasShadow="False">
-                                            <Image Source="no_photo.png" Aspect="AspectFill"
-                                                HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="80"/>
-                                        </Frame>
-                                        <StackLayout Grid.Row="1" Padding="5,0,5,5" Spacing="1">
-
-                                            <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="16" LineBreakMode="TailTruncation" 
-                                                   TextColor="White"  FontAttributes="Bold"/>
-                                            <Label Text="{Binding Availability}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12" LineBreakMode="TailTruncation"
-                                                   TextColor="White"/>
-                                            <Label Text="{Binding Price}" FontSize="12" TextColor="White" HorizontalOptions="Center"  VerticalOptions="Center" LineBreakMode="TailTruncation"/>
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="100"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                </Grid.ColumnDefinitions>
-                                                <Button Command="{Binding BindingContext.SelectCommand, Source={x:Reference _this}}" 
-                         CommandParameter="{Binding .}" Grid.Column="1" Text="Подробнее"  VerticalOptions="Center" BorderRadius="16" FontSize="10" HeightRequest="34" BorderWidth="0"/>
-                                            </Grid>
-                                        </StackLayout>
-                                    </Grid>
+                                      <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="16" LineBreakMode="TailTruncation"
+                                             TextColor="White" FontAttributes="Bold"/>
+                                      <Label Text="{Binding Availability}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12" LineBreakMode="TailTruncation"
+                                             TextColor="White"/>
+                                      <Label Text="{Binding Price}" FontSize="12" TextColor="White" HorizontalOptions="Center"  VerticalOptions="Center" LineBreakMode="TailTruncation"/>
+                                      <Grid>
+                                        <Grid.ColumnDefinitions>
+                                          <ColumnDefinition Width="*"/>
+                                          <ColumnDefinition Width="100"/>
+                                          <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button Grid.Column="1" Text="Подробнее" Command="{Binding BindingContext.SelectCommand, Source={x:Reference _this}}"
+                 CommandParameter="{Binding .}" VerticalOptions="Center" BorderRadius="16" FontSize="10" HeightRequest="34" BorderWidth="0"/>
+                                      </Grid>
+                                    </StackLayout>
+                                  </Grid>
                                 </Frame>
                             </Grid>
                         </ViewCell>

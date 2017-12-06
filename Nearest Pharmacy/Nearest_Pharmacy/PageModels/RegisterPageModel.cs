@@ -21,7 +21,7 @@ namespace Nearest_Pharmacy.PageModels
         public string Password { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
-        public string Patronymic { get; set; }
+        public string Patronomyc { get; set; }
         public DateTime DateTime { get; set; }
         public string Email { get; set; }
         public string Number { get; set; }
@@ -36,7 +36,7 @@ namespace Nearest_Pharmacy.PageModels
                 Password = Password,
                 FirstName = FirstName,
                 SecondName = SecondName,
-                Patronymic = Patronymic,
+                Patronymic = Patronomyc,
                 DateTime = DateTime,
                 Email = Email,
                 Number = Number,

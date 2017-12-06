@@ -17,11 +17,16 @@ namespace Nearest_Pharmacy
             InitializeComponent();
             FreshIOC.Container.Register<IPharmacyService, PharmacyService>();
             var masterDetailNav = new FreshMasterDetailNavigationContainer();
+
             masterDetailNav.Init("Меню");
             masterDetailNav.AddPage<ProductListPageModel>("Главная страница", null);
+            masterDetailNav.SwitchSelectedRootPageModel<ProductListPageModel>();
             masterDetailNav.AddPage<LoginPageModel>("Войти", null);
             masterDetailNav.AddPage<RegisterPageModel>("Регистрация", null);
+
             MainPage = masterDetailNav;
+
+
 
         }
 

@@ -15,7 +15,6 @@ namespace Nearest_Pharmacy.PageModels
     class LoginPageModel : FreshBasePageModel
     {
         public IPharmacyService _pharmacyService;
-        private bool isLogined;
 
         public LoginPageModel(IPharmacyService pharmacyService)
         {
@@ -43,7 +42,7 @@ namespace Nearest_Pharmacy.PageModels
             }
             else
             {
-                isLogined = true;
+                Auth a = new Auth(true);
                 await CoreMethods.PushPageModel<ProductListPageModel>();
             }
 

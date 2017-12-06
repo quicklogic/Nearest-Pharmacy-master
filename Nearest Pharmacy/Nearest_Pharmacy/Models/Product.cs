@@ -20,7 +20,7 @@ namespace Nearest_Pharmacy.Models
         public string ProducerID { get; set; }
         public bool IsVisible { get; set; }
 
-        public string ProductPath = "DefaultPortrait";
+        public string ImagePath { get; set; }
 
         public Product()
         {

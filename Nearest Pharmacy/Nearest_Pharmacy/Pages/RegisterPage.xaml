@@ -8,17 +8,19 @@
         <StackLayout Padding="20">
     
             <Label Text="Регистрация" TextColor="Green" FontSize="20"></Label>
-            <Entry x:Name="Login" Placeholder="Логин" WidthRequest="150" Text ="{Binding Path= Login }" >"</Entry>
-            <Entry x:Name="Password" Placeholder="Пароль" WidthRequest="150" IsPassword ="True" Text ="{Binding Path= Password }" ></Entry>
-            <Entry x:Name="FirstName" Placeholder="Имя" WidthRequest="150" Text ="{Binding Path= FirstName }" ></Entry>
-            <Entry x:Name="MiddleName" Placeholder="Фамилия Name" WidthRequest="150" Text ="{Binding Path= MiddleName }"></Entry>
-            <Entry x:Name="LastName" Placeholder="Отчество" WidthRequest="150" Text ="{Binding Path= LastName }" ></Entry>
-            <Entry x:Name="Email" Placeholder="Элетронная почта" WidthRequest="150" Text ="{Binding Path= Email }" ></Entry>
-            <Entry x:Name="Number" Placeholder="Номер телефона" WidthRequest="150"  Text ="{Binding Path= Number }" ></Entry>
-            <Entry x:Name="Address" Placeholder="Адрес" WidthRequest="150"  Text ="{Binding Path= Address }" ></Entry>
+            <Entry x:Name="Login" Placeholder="Логин" WidthRequest="150" Text ="{Binding Login }" >"</Entry>
+            <Entry x:Name="Password" Placeholder="Пароль" WidthRequest="150" IsPassword ="True" Text ="{Binding Password }" ></Entry>
+            <Entry x:Name="FirstName" Placeholder="Имя" WidthRequest="150" Text ="{Binding FirstName }" ></Entry>
+            <Entry x:Name="MiddleName" Placeholder="Фамилия Name" WidthRequest="150" Text ="{Binding SecondName }"></Entry>
+            <Entry x:Name="LastName" Placeholder="Отчество" WidthRequest="150" Text ="{Binding  Patronomyc }" ></Entry>
+            <Entry x:Name="Email" Placeholder="Элетронная почта" WidthRequest="150" Text ="{Binding Email }" ></Entry>
+            <Entry x:Name="Number" Placeholder="Номер телефона" WidthRequest="150"  Text ="{Binding Number }" ></Entry>
+            <Entry x:Name="Address" Placeholder="Адрес" WidthRequest="150"  Text ="{Binding Address }" ></Entry>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Дата рождения" FontSize="25" TextColor="Green" VerticalOptions="End"/>
-                <DatePicker x:Name="Date"/>
+                <Label Text="Дата рождения" FontSize="25" TextColor="Green" VerticalOptions="End"  />
+                <DatePicker x:Name="Date" Date="{Binding DateTime}" >
+                  <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+                </DatePicker>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
               <Button BackgroundColor="Green" TextColor="White" Text="Зарегистрироваться" Command ="{Binding Register}"/>

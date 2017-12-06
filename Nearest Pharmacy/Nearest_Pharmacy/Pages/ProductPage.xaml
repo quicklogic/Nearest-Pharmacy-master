@@ -6,9 +6,17 @@
                           Title="{Binding product.Name}"  >
     <local:FreshBaseContentPage.Content>
         <ScrollView>
+          <Frame BackgroundColor="White" Padding="10" HasShadow="False">
+           
             <StackLayout>
                 <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand">
-                    <Image Source="icon.png" WidthRequest="400" HeightRequest="400" Aspect="AspectFill"/>
+                    <Image  WidthRequest="400" HeightRequest="400" Aspect="Fill">
+                        <Image.Source>
+                          <UriImageSource Uri="{Binding product.ImagePath}"
+                            CacheValidity="14"
+                            CachingEnabled="true"/>
+                        </Image.Source>
+                      </Image>
                 </StackLayout>
                 <StackLayout  Orientation="Vertical" VerticalOptions="CenterAndExpand">
                     <Label Text="Имя:" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center"/>
@@ -24,6 +32,8 @@
                 </StackLayout>
                 <Button Text="Добавить в корзину" Command="{Binding AddToBasket}"/>
             </StackLayout>
-        </ScrollView>
+          </Frame>
+        </ScrollView>            
+    
     </local:FreshBaseContentPage.Content>
 </local:FreshBaseContentPage>

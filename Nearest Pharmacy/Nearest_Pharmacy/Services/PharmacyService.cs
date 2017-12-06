@@ -20,7 +20,7 @@ namespace Nearest_Pharmacy.Models
             client = new HttpClient();
         }
 
-        public async Task<IEnumerable<Product>> Get()
+        public async Task<IEnumerable<Product>> GetProduct()
         {
             
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
@@ -29,6 +29,14 @@ namespace Nearest_Pharmacy.Models
   
         }
 
+        public async Task<Image>GetImage(int ID)
+        {
+
+            client.DefaultRequestHeaders.Add("Accept", "application/json");
+            string result = await client.GetStringAsync("http://pharmacyapiprototype123.azurewebsites.net/api/image/"+ Convert.ToString(ID));
+            return JsonConvert.DeserializeObject<Image>(result);
+
+        }
 
         public async Task<UserInfo> Add(UserInfo user)
         {
@@ -58,5 +66,3 @@ namespace Nearest_Pharmacy.Models
 
     }
 }
-//https://github.com/adamped/MyWebAPI/blob/master/MyWebAPI/Auth/TokenProviderMiddleware.cs
-//https://azuremobilehelp.com/jwt-authentication-webapi/

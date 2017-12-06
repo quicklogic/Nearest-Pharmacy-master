@@ -16,10 +16,9 @@ namespace Nearest_Pharmacy.Pages
 
         public ProductListPage()
         {
-            InitializeComponent();
-           
+            InitializeComponent();   
         }
 
-        
+
     }
 }

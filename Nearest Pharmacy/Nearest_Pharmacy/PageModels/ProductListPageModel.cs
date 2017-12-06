@@ -8,7 +8,6 @@ using PropertyChanged;
 using Nearest_Pharmacy.Models;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
-using Nearest_Pharmacy.Models;
 using System.Windows.Input;
 
 namespace Nearest_Pharmacy.PageModels
@@ -43,18 +42,20 @@ namespace Nearest_Pharmacy.PageModels
             ObservableCollection<Product> product = new ObservableCollection<Product>();
             ProductPair productPair;
             Products.Clear();
-            IEnumerable<Product> getProduct = await _pharmacyService.Get();
+            IEnumerable<Product> getProduct = await _pharmacyService.GetProduct();
 
             foreach (Product p in getProduct)
             {
+                Models.Image img = await _pharmacyService.GetImage(p.ID);
+                p.ImagePath = img.ImageURL;
                 product.Add(p);
             }
 
             for (int j = 0; j < getProduct.Count(); j += 2)
-            {
+            {             
                 if (j + 1 <= product.Count)
                 {
-                    productPair = new ProductPair(product[j], product[j + 1]);
+                    productPair = new ProductPair(product[j], product[j + 1]);       
                     Products.Add(productPair);
                 }
             }

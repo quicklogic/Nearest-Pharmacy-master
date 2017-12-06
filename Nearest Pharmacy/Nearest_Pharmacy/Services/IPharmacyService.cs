@@ -6,7 +6,8 @@ namespace Nearest_Pharmacy.Models
     public interface IPharmacyService
     {
 
-        Task<IEnumerable<Product>> Get();
+        Task<IEnumerable<Product>> GetProduct();
+        Task <Image> GetImage(int ID);
 
         Task<UserInfo> Add(UserInfo user);
 

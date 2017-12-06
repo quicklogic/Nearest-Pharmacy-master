@@ -11,9 +11,7 @@ namespace Nearest_Pharmacy.PageModels
 
         public ProductPageModel(IPharmacyService pharmacyService)
         {
-            _pharmacyService = pharmacyService;
-            
-
+            _pharmacyService = pharmacyService;         
         }
 
         public Product product { get; set; }
